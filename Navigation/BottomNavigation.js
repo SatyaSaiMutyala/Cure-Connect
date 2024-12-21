@@ -29,10 +29,10 @@ const BottomNavigation = () => {
     return (
         <BottomNavigation.Navigator
             screenOptions={{
-                tabBarActiveTintColor: "tomato",
+                tabBarActiveTintColor: "#ffffff",
                 tabBarInactiveTintColor: "gray",
-                tabBarStyle: { backgroundColor: "white" },
-                headerStyle: { backgroundColor: '#6fa3d8' },
+                tabBarStyle: { backgroundColor: "#5792a4" },
+                headerStyle: { backgroundColor: '#5792a4' },
             }}
         >
             <BottomNavigation.Screen
