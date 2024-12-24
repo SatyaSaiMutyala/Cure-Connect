@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import Swiper from "react-native-swiper";
-import { rMS, rS, rV } from "../Components/Utils/Responsive";
 import { FontAwesome6 } from '@expo/vector-icons';
 import { useNavigation } from "@react-navigation/native";
+import { moderateScale, scale, verticalScale } from "react-native-size-matters";
 
 const LoginScreen = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -63,40 +63,40 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     image: {
-        width: rS(330),
-        height: rV(400),
+        width: scale(330),
+        height: verticalScale(400),
     },
     imageTwo: {
-        width: rS(330),
-        height: rV(500),
+        width: scale(330),
+        height: verticalScale(500),
     },
     imageThree: {
-        width: rS(320),
-        height: rV(460),
+        width: scale(320),
+        height: verticalScale(460),
     },
     dot: {
         backgroundColor: "rgba(0,0,0,.2)",
-        width: rS(8),
-        height: rV(8),
+        width: scale(8),
+        height: verticalScale(8),
         borderRadius: 5,
-        margin: rMS(5),
+        margin: moderateScale(5),
     },
     activeDot: {
         backgroundColor: "#fff",
-        width: rS(10),
-        height: rV(10),
+        width: scale(10),
+        height: verticalScale(10),
         borderRadius: 6,
-        margin: rMS(5),
+        margin: moderateScale(5),
     },
     button: {
         position: 'absolute',
-        bottom: rV(10),
-        right: rS(20),
-        paddingVertical: rV(5),
-        paddingHorizontal: rS(20),
+        bottom: verticalScale(10),
+        right: scale(20),
+        paddingVertical: verticalScale(5),
+        paddingHorizontal: scale(20),
     },
     buttonText: {
-        fontSize: rS(25),
+        fontSize: scale(25),
         color: '#ffffff',
         shadowOpacity: 0.34,
         elevation: 10,
@@ -114,14 +114,14 @@ const styles = StyleSheet.create({
     },
     modalContent: {
         backgroundColor: '#fff',
-        padding: rS(20),
+        padding: scale(20),
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
     },
     closeButton: {
-        marginTop: rV(20),
+        marginTop: verticalScale(20),
         backgroundColor: '#5792a4',
-        padding: rS(10),
+        padding: scale(10),
         borderRadius: 5,
     },
 });

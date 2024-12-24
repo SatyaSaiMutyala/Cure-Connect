@@ -15,3 +15,6 @@ export const rMS = (size, factor) => {
     }
     return moderateScale(size, f)
 }
+//wd - scale
+//height  - vs
+//mrgin fn modernscale

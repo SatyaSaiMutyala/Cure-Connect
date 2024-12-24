@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Modal, View, Text, StyleSheet, TouchableOpacity, TextInput, Button, BackHandler } from "react-native";
 import { rMS, rV, rS } from "./Utils/Responsive";
 import { useNavigation } from "@react-navigation/native";
+import { moderateScale, scale } from "react-native-size-matters";
+import { Theme } from "../GlobalStyles/Theme";
 
 const LoginModalForm = () => {
     const [modalOpen, setModalOpen] = useState(true);
@@ -25,7 +27,10 @@ const LoginModalForm = () => {
     }
 
     return (
-        <View style={styles.container}>
+        <>
+        <View style={styles.mainContainer1}></View>
+        <View style={styles.mainContainer2}></View>
+        {/* <View style={styles.container}>
             <Modal
                 animationType="slide"
                 transparent={true}
@@ -34,7 +39,7 @@ const LoginModalForm = () => {
                 <View style={styles.overlay}>
                     <View style={styles.modalContent}>
                         <TouchableOpacity onPress={handleClickBack} style={styles.titleView}>
-                            <Text style={styles.title}>Welcom! Glad to see you</Text>
+                            <Text style={Theme.mainTitle}>Welcome! Glad to see you</Text>
                         </TouchableOpacity>
                         <View style={styles.fieldsContainer}>
                             <View>
@@ -49,11 +54,27 @@ const LoginModalForm = () => {
                     </View>
                 </View>
             </Modal>
-        </View>
+        </View> */}
+        </>
     );
 };
 
 const styles = StyleSheet.create({
+    mainContainer1: {
+        flex: 5.5,
+    
+       
+    },
+    mainContainer2:{
+        flex:2,
+      
+        backgroundColor: '#5792a4',
+        padding: 16,
+        alignItems: 'center',
+        borderTopLeftRadius: 45,
+        borderTopRightRadius: 45,
+    },
+
     container: {
         flex: 1,
     },
@@ -64,45 +85,43 @@ const styles = StyleSheet.create({
     },
     modalContent: {
         backgroundColor: '#5792a4',
-        padding: 20,
+        padding: 16,
         alignItems: 'center',
         borderTopLeftRadius: 45,
         borderTopRightRadius: 45,
     },
     titleView : {
-        marginVertical : rMS(25)
+        marginVertical : moderateScale(20)
     },
     title : {
-        fontSize : rMS(28),
+        fontSize : moderateScale(24),
         color: 'white',
         fontFamily:'Lato',
         fontWeight:'bold'
     },
     textField : {
-        borderWidth:2,
+        borderWidth:1,
         borderColor:'#ffffff',
-        borderRadius:10,
-        paddingVertical : rMS(10),
-        paddingHorizontal : rMS(10),
-        width: rS(250),
-        fontSize: rMS(18),
+        borderRadius:16,
+        paddingVertical : moderateScale(8),
+        paddingHorizontal : moderateScale(8),
+        width: scale(280),
+        fontSize: moderateScale(12),
         color:'#ffffff'
     },
-    fieldsContainer : {
-        flexDirection:'column'
-    },
+   
     button : {
         backgroundColor:'#ffffff',
-        paddingVertical: rMS(10),
+        paddingVertical: moderateScale(8),
         borderRadius:10,
         justifyContent:'center',
         alignItems:'center',
-        marginVertical : rMS(30),
+        marginVertical : moderateScale(16),
     },
     buttonText : {
         color:'#5792a4',
         fontWeight:'bold',
-        fontSize:rMS(20),
+        fontSize:moderateScale(15),
     }
 });
 
