@@ -3,7 +3,7 @@ import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import colors from "../GlobalColors/GlobalColor";
-import { moderateScale } from "react-native-size-matters";
+import { moderateScale, verticalScale } from "react-native-size-matters";
 export const fonts = () => {
     const [fontsLoaded] = useFonts({
         'Quicksand-Bold': require('../assets/Fonts/Quicksand-Bold.ttf'),
@@ -181,9 +181,13 @@ export const Theme = StyleSheet.create({
         fontSize:14,  
     },
     mainTitle: {
+        justifyContent: 'center',
+        textAlign: 'center',
         color: 'white',
         fontFamily: "Quicksand-Bold",
-        fontSize: moderateScale(24),
+        fontSize: moderateScale(20),
+        marginBottom: verticalScale(12),
+      
     }
   
 });

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Modal, View, Text, StyleSheet, TouchableOpacity, TextInput, Button, BackHandler } from "react-native";
+import { Modal, View, Text, StyleSheet, TouchableOpacity, TextInput, Button, BackHandler, Image } from "react-native";
 import { rMS, rV, rS } from "./Utils/Responsive";
 import { useNavigation } from "@react-navigation/native";
-import { moderateScale, scale } from "react-native-size-matters";
+import { moderateScale, scale, verticalScale } from "react-native-size-matters";
 import { Theme } from "../GlobalStyles/Theme";
+import {GlobalStyles} from '../GlobalStyles/GlobalStyles'
+
 
 const LoginModalForm = () => {
     const [modalOpen, setModalOpen] = useState(true);
@@ -28,8 +30,30 @@ const LoginModalForm = () => {
 
     return (
         <>
-        <View style={styles.mainContainer1}></View>
-        <View style={styles.mainContainer2}></View>
+        <View style={styles.mainContainer1}>
+        <View style={styles.imageContainer}>
+                <Image 
+                    source={require('../assets/images/mainPic.gif')} 
+                    style={styles.imageStyle} 
+                />
+            </View>
+        </View>
+        <View style={styles.mainContainer2}>
+            <View style={{width: '100%', justifyContent: 'center',}}>
+                <Text style={Theme.mainTitle}>Welcome! Glad to see you</Text>
+                <View>
+                    <View style={styles.textInputContainer}>
+                        <TextInput style={[ styles.input,Theme.h3, {color: 'white'}]}  placeholderTextColor='white' keyboardType="number-pad" placeholder="Enter Your Number" />
+                    </View>
+                        <View>
+                            <TouchableOpacity style={styles.button} onPress={handleClickBack}>
+                                <Text style={[Theme.title, { color:'#5792a4'}]}>Get OTP</Text>
+                            </TouchableOpacity>
+                        </View>
+                </View>
+            </View>
+
+        </View>
         {/* <View style={styles.container}>
             <Modal
                 animationType="slide"
@@ -60,19 +84,54 @@ const LoginModalForm = () => {
 };
 
 const styles = StyleSheet.create({
+    textInputContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        borderWidth: 1,
+        borderColor: '#ddd',
+        paddingVertical:1,
+        borderRadius: 12,
+        marginBottom: 3,
+        paddingHorizontal: 10,
+        width: '100%',
+      },
+      input: {
+        flex: 1,
+        paddingVertical: 10
+      },
     mainContainer1: {
-        flex: 5.5,
-    
+        flex: 4.5,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'white',
+        borderBottomLeftRadius: 55,
+        borderTopRightRadius: 45,
        
+    },
+    imageContainer: {
+        width: '90%',
+        aspectRatio: 1, 
+       
+        borderRadius: 20,
+        overflow: 'hidden',
+    },
+    fieldsContainer: {
+        marginVertical: verticalScale(20)
+    },
+    imageStyle: {
+        width: '100%',
+        height: '100%',
+        resizeMode: 'cover', 
+        
     },
     mainContainer2:{
         flex:2,
-      
         backgroundColor: '#5792a4',
-        padding: 16,
+        paddingHorizontal: 24,
+        textAlign: 'center',
+        justifyContent: 'center',
         alignItems: 'center',
-        borderTopLeftRadius: 45,
-        borderTopRightRadius: 45,
+        borderTopRightRadius: 55,
     },
 
     container: {
@@ -102,8 +161,8 @@ const styles = StyleSheet.create({
     textField : {
         borderWidth:1,
         borderColor:'#ffffff',
-        borderRadius:16,
-        paddingVertical : moderateScale(8),
+        borderRadius:12,
+        paddingVertical : moderateScale(12),
         paddingHorizontal : moderateScale(8),
         width: scale(280),
         fontSize: moderateScale(12),
@@ -112,8 +171,8 @@ const styles = StyleSheet.create({
    
     button : {
         backgroundColor:'#ffffff',
-        paddingVertical: moderateScale(8),
-        borderRadius:10,
+        paddingVertical: moderateScale(12),
+        borderRadius:12,
         justifyContent:'center',
         alignItems:'center',
         marginVertical : moderateScale(16),
